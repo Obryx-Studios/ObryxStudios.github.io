@@ -1,0 +1,219 @@
+/* ===================== RESET ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===================== THEME VARIABLES ===================== */
+:root {
+    --bg: #0d0d0d;
+    --bg-alt: #141414;
+    --text: #f2f2f2;
+    --accent: #e94f37;
+    --card: #1e1e1e;
+}
+
+body.light {
+    --bg: #f6f6f6;
+    --bg-alt: #ffffff;
+    --text: #121212;
+    --card: #e9e9e9;
+}
+
+/* ===================== GLOBAL ===================== */
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ===================== NAVBAR ===================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 16px 40px;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+nav a {
+    margin-left: 30px;
+    font-weight: 600;
+}
+
+#theme-toggle {
+    margin-left: 20px;
+    font-size: 1.2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text);
+}
+
+/* ===================== HERO ===================== */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-inner h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.6rem;
+    color: var(--accent);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hero-inner h1 span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.hero-inner p {
+    margin-top: 15px;
+    font-size: 1.1rem;
+    opacity: 0.85;
+}
+
+/* ===================== SECTIONS ===================== */
+.section {
+    padding: 100px 50px;
+    text-align: center;
+}
+
+.section.dark {
+    background: var(--bg-alt);
+}
+
+.section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    margin-bottom: 20px;
+}
+
+.section p {
+    max-width: 720px;
+    margin: 0 auto 25px auto;
+    font-size: 1.05rem;
+}
+
+/* ===================== FAB GRID ===================== */
+.fab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 50px auto;
+}
+
+.fab-card {
+    background: var(--card);
+    padding: 35px;
+    border-radius: 18px;
+    text-align: left;
+    transition: box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.fab-preview {
+    position: relative;
+    width: 100%;
+    height: 140px;
+    margin-bottom: 15px;
+}
+
+.fab-preview img {
+    position: absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    object-fit: cover;
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.fab-card:hover .fab-preview img:nth-child(1){ opacity:1; }
+.fab-card:hover .fab-preview img:nth-child(2){ opacity:0.7; }
+
+.fab-card h3 {
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.fab-card span {
+    display: inline-block;
+    margin-top: 15px;
+    font-weight: 700;
+}
+
+/* ===================== BUTTON ===================== */
+.btn-primary {
+    background: var(--accent);
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-weight: 700;
+    display: inline-block;
+}
+
+/* ===================== FOOTER ===================== */
+footer {
+    padding: 30px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* ===================== HERO ANIMATION ===================== */
+.hero-inner h1 span {
+    animation: flyIn 0.8s forwards;
+}
+
+.hero-inner h1 span:nth-child(1){ animation-delay: 0s; }
+.hero-inner h1 span:nth-child(2){ animation-delay: 0.05s; }
+/* Increment each span's delay for each letter */
+.hero-inner h1 span:nth-child(3){ animation-delay: 0.1s; }
+.hero-inner h1 span:nth-child(4){ animation-delay: 0.15s; }
+.hero-inner h1 span:nth-child(5){ animation-delay: 0.2s; }
+.hero-inner h1 span:nth-child(6){ animation-delay: 0.25s; }
+.hero-inner h1 span:nth-child(7){ animation-delay: 0.3s; }
+.hero-inner h1 span:nth-child(8){ animation-delay: 0.35s; }
+.hero-inner h1 span:nth-child(9){ animation-delay: 0.4s; }
+.hero-inner h1 span:nth-child(10){ animation-delay: 0.45s; }
+.hero-inner h1 span:nth-child(11){ animation-delay: 0.5s; }
+.hero-inner h1 span:nth-child(12){ animation-delay: 0.55s; }
+.hero-inner h1 span:nth-child(13){ animation-delay: 0.6s; }
+
+@keyframes flyIn {
+    to { opacity: 1; transform: translateY(0); }
+}
